@@ -1,3 +1,4 @@
+from redbot.core import commands
 
 class Mycog(commands.Cog):
     """My custom cog"""
