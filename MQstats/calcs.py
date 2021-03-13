@@ -1,6 +1,7 @@
 from redbot.core import commands
+import discord
 
-from redbot.core import checks, commands
+from redbot.core import Config, checks, commands
 from redbot.core.bot import Red
 from redbot.core.utils.chat_formatting import box, pagify
 from asyncio import sleep
@@ -11,25 +12,12 @@ class Mycog(commands.Cog):
     async def adcalc(self, ctx):
         await ctx.send("Welcome to the adrenaline optimisation module")
 
-        #Might integer collection
+        #Might level collection
         await ctx.send("Please send your might")
-        mightStr = await bot.wait_for("message", timeout=120, check=check)
-        #float conversion and comma removal
-        await sleep(0.2)
+        
+        #Member object
+        pred = MessagePredicate.valid_member(ctx)
+        await bot.wait_for("message", check=pred)
+        member = pred.result
 
-        #HP integer collection
-        await ctx.send("Please send your HP")
-        hpStr = await bot.wait_for("message", timeout=120, check=check)
-        #float conversion and comma removal
-        await sleep(0.2)
-
-        #Defence integer collection
-        await ctx.send("Please send your def %")
-        defStr = await bot.wait_for("message", timeout=120, check=check)
-        #int conversion and % removal
-        #float conversion
-
-        await ctx.send(mightStr)
-        await ctx.send(hpStr)
-        await ctx.send(defStr)
-
+        await ctx.send(member.mention)
