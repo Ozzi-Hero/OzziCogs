@@ -8,12 +8,6 @@ from asyncio import sleep
 
 class Mycog(commands.Cog):
 
-    #@commands.command()
-    #async def adcalc(self, ctx):
-     #   await ctx.send("Welcome to the adrenaline optimisation module")
-#
- #       #Might level collection
-  #      await ctx.send("Please send your might")
 
     @commands.command()
     async def test(self, ctx, args1, args2, args3):
