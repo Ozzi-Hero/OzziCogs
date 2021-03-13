@@ -8,16 +8,13 @@ from asyncio import sleep
 
 class Mycog(commands.Cog):
 
+    #@commands.command()
+    #async def adcalc(self, ctx):
+     #   await ctx.send("Welcome to the adrenaline optimisation module")
+#
+ #       #Might level collection
+  #      await ctx.send("Please send your might")
+
     @commands.command()
-    async def adcalc(self, ctx):
-        await ctx.send("Welcome to the adrenaline optimisation module")
-
-        #Might level collection
-        await ctx.send("Please send your might")
-        
-        #Member object
-        pred = MessagePredicate.valid_member(ctx)
-        await bot.wait_for("message", check=pred)
-        member = pred.result
-
-        await ctx.send(member.mention)
+    async def test(self, ctx, args1, args2, args3):
+        await ctx.send(f"1. {args1}\n2. {args2}\n3. {args3}")
