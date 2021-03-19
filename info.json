@@ -1,7 +1,7 @@
 {
-    "author" : ["OzziHero (Ozzi#8821"],
+    "author" : ["OzziHero (Ozzi#8821)"],
     "install_msg" : "Thank you for installing my repo.\nFor issues, bugs, or suggestions visit https://github.com/Ozzi-Hero/Ozzi-Cogs",
     "name" : "Ozzi-Cogs",
     "short" : "OzziHero's awesome cogs.",
-    "description" : "Contains various cogs for your discord server.",
+    "description" : "A collection of niche use-case cogs or highly specific cogs that I've made.",
 }
