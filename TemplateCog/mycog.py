@@ -1,4 +1,5 @@
 from redbot.core import commands
+import discord
 
 class Mycog(commands.Cog):
     """My custom cog"""
@@ -8,3 +9,9 @@ class Mycog(commands.Cog):
         """This does stuff!"""
         # Your code will go here
         await ctx.send("I can do stuff!")
+
+    @commands.command()
+    async def createchannel(self, ctx, name):
+        guild = ctx.message.guild
+        category = ctx.TextChannel.category
+        await guild.create_text_channel(name, category=category)
