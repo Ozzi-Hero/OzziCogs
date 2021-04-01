@@ -13,4 +13,4 @@ class Mycog(commands.Cog):
     @commands.command()
     async def createchannel(self, ctx, name):
         guild = ctx.message.guild
-        await guild.create_text_channel(name, category=category)
+        await guild.create_text_channel(name)
