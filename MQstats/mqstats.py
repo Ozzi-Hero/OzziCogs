@@ -4,7 +4,7 @@ class MQstats(commands.Cog):
 
     @commands.command()
     async def adcalc(self, ctx, might: str, health: str, defence: str):
-        """Command for assisting with adrenaline optimisation"""
+        """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
         might = int(str.replace(might, ",", ""))
         health = int(str.replace(health, ",", ""))
