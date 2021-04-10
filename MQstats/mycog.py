@@ -4,5 +4,8 @@ class Mycog(commands.Cog):
 
 
     @commands.command()
-    async def test(self, ctx, test: int):
-        await ctx.send(f"Your number is {test}")
+    async def adcalc(self, ctx, might: int, health: int, defence: int):
+        defence = defence / 100
+        await ctx.send(might)
+        await ctx.send(health)
+        await ctx.send(defence)
