@@ -16,13 +16,13 @@ class MQstats(commands.Cog):
         healthremaining = health - dmgActual
         adreThreshold = health * 0.2
 
-        adreActivatedBool = bool(healthremaining < adreThreshold)
+        #adreActivatedBool = bool(healthremaining < adreThreshold)
 
         embed=discord.Embed()
         embed.add_field(name = "Bubble damage", value = dmgActual, inline = False)
         embed.add_field(name = "Health remaining:", value = healthremaining, inline=False)
-        if (adreActivatedBool):
-            embed.add_field(name = "Adrenaline activated?", value = "Yes", inline = False)
-        else:
-            embed.add_field(name = "Adrenaline activated?", value = "No", inline = False)
+        #if (adreActivatedBool):
+         #   embed.add_field(name = "Adrenaline activated?", value = "Yes", inline = False)
+        #else:
+         #   embed.add_field(name = "Adrenaline activated?", value = "No", inline = False)
         await ctx.send(embed=embed)
