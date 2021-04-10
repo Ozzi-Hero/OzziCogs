@@ -1,10 +1,10 @@
 from redbot.core import commands
 
 class Mycog(commands.Cog):
-    """My custom cog"""
 
     @commands.command()
-    async def mycom(self, ctx):
-        """This does stuff!"""
-        # Your code will go here
-        await ctx.send("I can do stuff!")
+    async def adcalc(self, ctx, might: int, health: int, defence: int):
+        defence = defence / 100
+        await ctx.send(might)
+        await ctx.send(health)
+        await ctx.send(defence)
