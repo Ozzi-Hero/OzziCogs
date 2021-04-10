@@ -4,5 +4,5 @@ class Mycog(commands.Cog):
 
 
     @commands.command()
-    async def test(self, ctx):
-        await ctx.send("f")
+    async def test(self, ctx, test: int):
+        await ctx.send(f"Your number is {test}")
