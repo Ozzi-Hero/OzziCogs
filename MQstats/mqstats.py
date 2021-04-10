@@ -20,7 +20,7 @@ class MQstats(commands.Cog):
         else:
             adbool = 'No'
 
-        await ctx.send(f"Actual damage: {dmgActual}")
-        await ctx.send(f"Health remaining: {healthremaining}")
-        await ctx.send(f"Adrenaline threshold: {adreThreshold}")
+        await ctx.send(f"Actual damage: {round(dmgActual)}")
+        await ctx.send(f"Health remaining: {round(healthremaining)}")
+        await ctx.send(f"Adrenaline threshold: {round(adreThreshold)}")
         await ctx.send(f"Adrenaline activated? {adbool}")
