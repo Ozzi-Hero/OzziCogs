@@ -5,9 +5,9 @@ class MQstats(commands.Cog):
     @commands.command()
     async def adcalc(self, ctx, might: str, health: str, defence: str):
 
-        might = str.replace(might, ",", "")
-        health = str.replace(health, ",", "")
-        defence = str.replace(defence, "%", "")
+        might = int(str.replace(might, ",", ""))
+        health = int(str.replace(health, ",", ""))
+        defence = int(str.replace(defence, "%", ""))
 
 
         defence = defence / 100
