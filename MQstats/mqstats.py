@@ -1,5 +1,4 @@
 from redbot.core import commands
-import discord.py
 
 class MQstats(commands.Cog):
 
@@ -16,13 +15,12 @@ class MQstats(commands.Cog):
         healthremaining = health - dmgActual
         adreThreshold = health * 0.2
 
-        #adreActivatedBool = bool(healthremaining < adreThreshold)
+        if (healthremaining < adreThreshold):
+            adbool = 'Yes'
+        else:
+            adbool = 'No'
 
-        embed=discord.Embed()
-        embed.add_field(name = "Bubble damage", value = dmgActual, inline = False)
-        embed.add_field(name = "Health remaining:", value = healthremaining, inline=False)
-        #if (adreActivatedBool):
-         #   embed.add_field(name = "Adrenaline activated?", value = "Yes", inline = False)
-        #else:
-         #   embed.add_field(name = "Adrenaline activated?", value = "No", inline = False)
-        await ctx.send(embed=embed)
+        await ctx.send(f"Actual damage: {dmgActual}")
+        await ctx.send(f"Health remaining: {healthremaining}")
+        await ctx.send(f"Adrenaline threshold: {adreThreshold}")
+        await ctx.send(f"Adrenaline activated? {adbool}")
