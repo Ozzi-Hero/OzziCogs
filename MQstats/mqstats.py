@@ -4,6 +4,7 @@ class MQstats(commands.Cog):
 
     @commands.command()
     async def adcalc(self, ctx, might: str, health: str, defence: str):
+        """Command for assisting with adrenaline optimisation"""
 
         might = int(str.replace(might, ",", ""))
         health = int(str.replace(health, ",", ""))
@@ -36,3 +37,7 @@ class MQstats(commands.Cog):
         await ctx.send(f"Adrenaline activated? {adbool}")
         if (adbool == 'No'):
             await ctx.send(f"HP decrease for adrenaline proc: {round(adreProcReq)}")
+
+    @commands.command()
+    async def ascalc(self, ctx):
+        await ctx.send("f")
