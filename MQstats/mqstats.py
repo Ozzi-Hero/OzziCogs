@@ -35,4 +35,4 @@ class MQstats(commands.Cog):
         await ctx.send(f"Adrenaline threshold: {round(adreThreshold):,}")
         await ctx.send(f"Adrenaline activated? {adbool}")
         if (adbool == 'No'):
-            await ctx.send(f"HP decrease for adrenaline proc: {adreProcReq}")
+            await ctx.send(f"HP decrease for adrenaline proc: {round(adreProcReq)}")
