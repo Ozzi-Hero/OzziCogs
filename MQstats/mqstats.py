@@ -17,6 +17,8 @@ class MQstats(commands.Cog):
 
         if (healthremaining < adreThreshold):
             adbool = 'Yes'
+        elif (healthremaining <= 0):
+            adbool = "MF you're dead"
         else:
             adbool = 'No'
 
