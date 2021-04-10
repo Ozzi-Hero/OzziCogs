@@ -1,5 +1,5 @@
-from .mycog import Mycog
+from .mqstats import MQstats
 
 
 def setup(bot):
-    bot.add_cog(Mycog())
+    bot.add_cog(MQstats())
