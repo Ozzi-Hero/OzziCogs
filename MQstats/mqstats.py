@@ -21,6 +21,8 @@ class MQstats(commands.Cog):
         healthremaining = health - dmgActual
         adreThreshold = health * 0.2
 
+        adreProcReq = healthremaining - adreThreshold + 1
+
         if (healthremaining <= 0):
             adbool = "MF you're dead"
         elif (healthremaining < adreThreshold):
@@ -32,3 +34,5 @@ class MQstats(commands.Cog):
         await ctx.send(f"Health remaining: {round(healthremaining):,}")
         await ctx.send(f"Adrenaline threshold: {round(adreThreshold):,}")
         await ctx.send(f"Adrenaline activated? {adbool}")
+        if (adbool == 'No'):
+            await ctx.send(f"HP decrease for adrenaline proc: {adreProcReq}")
