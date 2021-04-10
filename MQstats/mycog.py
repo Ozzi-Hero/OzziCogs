@@ -1,6 +1,6 @@
 from redbot.core import commands
 
-class Mycog(commands.Cog):
+class MQstats(commands.Cog):
 
     @commands.command()
     async def adcalc(self, ctx, might: int, health: int, defence: int):
