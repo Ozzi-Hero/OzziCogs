@@ -67,11 +67,11 @@ class MQstats(commands.Cog):
     @commands.command()
     async def embedtest(self, ctx):
         embed = discord.Embed(
-            title = 'Test',
+            title = f'Test for {ctx.author.mention}',
             description = 'test',
             colour = discord.Colour.red()
         )
-        embed.set_thumbnail(url=ctx.Member.avatar_url)
+        embed.set_thumbnail(url='https://cdn.discordapp.com/avatars/799283401311256596/5a83148aecf7ab49cd67c10792398459.png?size=1024')
         embed.add_field(
             name = 'Field test',
             value = 'abc',
