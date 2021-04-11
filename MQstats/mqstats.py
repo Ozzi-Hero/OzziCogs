@@ -39,6 +39,23 @@ class MQstats(commands.Cog):
             await ctx.send(f"Required HP decrease to proc adrenaline: {round(adreProcReq)}")
 
     @commands.command()
-    async def ascalc(self, ctx):
+    async def ascalc(self, ctx, type: str, speed: str):
         """Returns the time taken to finish your last hit combo based off your weapon type and AS"""
-        await ctx.send("f")
+
+        speed = float(str.replace(speed, "%", ""))
+        type = str.lower(type)
+
+        if (type == 'axe'):
+            basespeed = 2.143
+        elif (type == 'sword'):
+            basespeed = 2.080
+        elif (type == 'staff'):
+            basespeed = 2.005
+        elif (type == 'spear'):
+            basespeed = 1.948
+        elif (type == 'hammer'):
+            basespeed = 1.938
+
+        finalspeed = float(basespeed - ((basespeed / 2) * speed))
+
+        await ctx.send(f"Your LHC time is {finalspeed}s")
