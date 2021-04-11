@@ -49,7 +49,7 @@ class MQstats(commands.Cog):
         embed.add_field(
             name = '**Damage from bubble:**',
             value = round(dmgActual),
-            inline = False
+            inline = True
         )
         embed.add_field(
             name = '**Health remaining:**',
@@ -70,7 +70,7 @@ class MQstats(commands.Cog):
             embed.add_field(
                 name = '**Required HP decrease to proc adrenaline:**',
                 value = round(adreProcReq),
-                inline = True
+                inline = False
             )
         await ctx.send(embed=embed)
 
