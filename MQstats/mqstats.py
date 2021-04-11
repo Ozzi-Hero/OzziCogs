@@ -75,3 +75,4 @@ class MQstats(commands.Cog):
             value = 'abc',
             inline = False
         )
+        await ctx.send(embed=embed)
