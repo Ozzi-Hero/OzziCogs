@@ -40,6 +40,43 @@ class MQstats(commands.Cog):
         if (adbool == 'No'):
             await ctx.send(f"Required HP decrease to proc adrenaline: {round(adreProcReq)}")
 
+        member = discord.Member
+        author = ctx.author
+
+        embed = discord.Embed(
+            title = 'Optimisation Results',
+            description = f'Results for {author.mention}',
+            colour = discord.Colour.red()
+        )
+        embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/782630973358866472/830777511411449877/DRD.png')
+        embed.add_field(
+            name = 'Damage from bubble:',
+            value = round(dmgActual),
+            inline = False
+        )
+        embed.add_field(
+            name = 'Health remaining:',
+            value = round(healthremaining),
+            inline = True
+        )
+        embed.add_field(
+            name = 'Adrenaline threshold:',
+            value = round(adreThreshold),
+            inline = True
+        )
+        embed.add_field(
+            name = 'Adrenaline activated?',
+            value = adbool,
+            inline = True
+        )
+        if (adbool == 'No'):
+            embed.add_field(
+                name = 'Required HP decrease to proc adrenaline:',
+                value = round(adreProcReq),
+                inline = True
+            )
+        await ctx.send(embed=embed)
+
     @commands.command()
     async def ascalc(self, ctx, type: str, speed: str):
         """Returns the time taken to finish your last hit combo based off your weapon type and AS"""
@@ -71,10 +108,10 @@ class MQstats(commands.Cog):
         author = ctx.author
 
         mention = str.replace(author.mention, "!", "")
-
+#put mention in description, not title
         embed = discord.Embed(
-            title = f'Test for {mention}',
-            description = 'test',
+            title = 'Optimisation Results',
+            description = f'Results for {mention}',
             colour = discord.Colour.red()
         )
         embed.set_thumbnail(url='https://cdn.discordapp.com/avatars/799283401311256596/5a83148aecf7ab49cd67c10792398459.png?size=1024')
