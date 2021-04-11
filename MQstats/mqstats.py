@@ -54,7 +54,7 @@ class MQstats(commands.Cog):
         embed.add_field(
             name = '**Health remaining:**',
             value = round(healthremaining),
-            inline = True
+            inline = False
         )
         embed.add_field(
             name = '**Adrenaline threshold:**',
