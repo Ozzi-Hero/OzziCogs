@@ -67,7 +67,7 @@ class MQstats(commands.Cog):
     @commands.command()
     async def embedtest(self, ctx):
 
-        member = ctx.Member
+        member = discord.Member
         author = ctx.author
 
         mention = str.replace(author.mention, "!", "")
