@@ -58,7 +58,7 @@ class MQstats(commands.Cog):
         elif (type == 'hammer'):
             basespeed = 1.938
 
-        getcontext().prec = 2
+        getcontext().prec = 4
         finalspeed = Decimal(basespeed) - (Decimal(basespeed / 2) * Decimal(speed))
 
         await ctx.send(f"Your LHC time is {finalspeed}s")
