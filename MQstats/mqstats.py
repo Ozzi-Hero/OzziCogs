@@ -47,25 +47,16 @@ class MQstats(commands.Cog):
         )
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/782630973358866472/830777511411449877/DRD.png')
         embed.add_field(
-            name = '**Damage from bubble:**',
-            value = round(dmgActual),
+            name = f'**Damage from bubble:**\n{round(dmgActual)}\n\n**Health remaining:**\n{round(healthremaining)}',
+            #value = round(dmgActual),
             inline = True
         )
         embed.add_field(
-            name = '**Health remaining:**',
-            value = round(healthremaining),
-            inline = False
-        )
-        embed.add_field(
-            name = '**Adrenaline threshold:**',
-            value = round(adreThreshold),
+            name = f'**Adrenaline threshold:**\n{round(adreThreshold)}\n\n**Adrenaline activated?**\n{adbool}',
+            #value = round(healthremaining),
             inline = True
         )
-        embed.add_field(
-            name = '**Adrenaline activated?**',
-            value = adbool,
-            inline = True
-        )
+
         if (adbool == 'No'):
             embed.add_field(
                 name = '**Required HP decrease to proc adrenaline:**',
