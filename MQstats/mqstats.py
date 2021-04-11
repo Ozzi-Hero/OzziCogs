@@ -1,5 +1,6 @@
 from redbot.core import commands
 from decimal import *
+import discord
 
 class MQstats(commands.Cog):
 
@@ -62,3 +63,15 @@ class MQstats(commands.Cog):
         finalspeed = Decimal(basespeed) - (Decimal(basespeed / 2) * Decimal(speed))
 
         await ctx.send(f"Your LHC time is {finalspeed}s")
+
+    @commands.command()
+    async def embedtest(self, ctx):
+        embed = discord.Embed(
+            title = 'Test',
+            description = 'test'
+        )
+        embed.add_field(
+            name = 'Field test',
+            value = 'abc',
+            inline = False
+        )
