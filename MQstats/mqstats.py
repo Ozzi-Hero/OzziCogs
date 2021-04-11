@@ -52,10 +52,6 @@ class MQstats(commands.Cog):
             inline = True
         )
         embed.add_field(
-<<<<<<< HEAD
-            name = f'**Adrenaline threshold:**\n{round(adreThreshold)}\n\n**Adrenaline activated?**\n{adbool}',
-            value = ' ',#round(healthremaining),
-=======
             name = '**Health remaining:**',
             value = round(healthremaining),
             inline = True
@@ -68,7 +64,6 @@ class MQstats(commands.Cog):
         embed.add_field(
             name = '**Adrenaline activated?**',
             value = adbool,
->>>>>>> parent of b70232e (Update mqstats.py)
             inline = True
         )
 
@@ -111,7 +106,6 @@ class MQstats(commands.Cog):
         author = ctx.author
 
         mention = str.replace(author.mention, "!", "")
-#put mention in description, not title
         embed = discord.Embed(
             title = 'Optimisation Results',
             description = f'Results for {mention}',
