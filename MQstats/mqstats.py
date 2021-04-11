@@ -49,12 +49,12 @@ class MQstats(commands.Cog):
         embed.add_field(
             name = '**Damage from bubble:**',
             value = round(dmgActual),
-            inline = False
+            inline = True
         )
         embed.add_field(
             name = '**Health remaining:**',
             value = round(healthremaining),
-            inline = False
+            inline = True
         )
         embed.add_field(
             name = '**Adrenaline threshold:**',
