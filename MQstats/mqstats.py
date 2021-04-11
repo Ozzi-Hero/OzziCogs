@@ -93,21 +93,15 @@ class MQstats(commands.Cog):
         await ctx.send(f"Your LHC time is {finalspeed}s")
 
     @commands.command()
-    async def embedtest(self, ctx):
+    async def barscalc(self, ctx, bubbletype: str, barsleft: int):
+        """Returns how much health bubble has left based on bars and bubble type."""
 
-        member = discord.Member
-        author = ctx.author
+        bubbletype = str.lower(bubbletype)
+        if bubbletype == 'weak':
+            bubblehealth = 25000
+        elif bubbletype == 'wise':
+            bubblehealth = 30000
+        else:
+            bubblehealth = 125000
 
-        mention = str.replace(author.mention, "!", "")
-        embed = discord.Embed(
-            title = 'Optimisation Results',
-            description = f'Results for {mention}',
-            colour = discord.Colour.red()
-        )
-        embed.set_thumbnail(url='https://cdn.discordapp.com/avatars/799283401311256596/5a83148aecf7ab49cd67c10792398459.png?size=1024')
-        embed.add_field(
-            name = 'Field test',
-            value = 'abc',
-            inline = False
-        )
-        await ctx.send(embed=embed)
+        await ctx.send(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
