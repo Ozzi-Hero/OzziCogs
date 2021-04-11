@@ -52,8 +52,23 @@ class MQstats(commands.Cog):
             inline = True
         )
         embed.add_field(
+<<<<<<< HEAD
             name = f'**Adrenaline threshold:**\n{round(adreThreshold)}\n\n**Adrenaline activated?**\n{adbool}',
             value = ' ',#round(healthremaining),
+=======
+            name = '**Health remaining:**',
+            value = round(healthremaining),
+            inline = True
+        )
+        embed.add_field(
+            name = '**Adrenaline threshold:**',
+            value = round(adreThreshold),
+            inline = True
+        )
+        embed.add_field(
+            name = '**Adrenaline activated?**',
+            value = adbool,
+>>>>>>> parent of b70232e (Update mqstats.py)
             inline = True
         )
 
