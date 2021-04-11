@@ -1,4 +1,5 @@
 from redbot.core import commands
+from decimal import *
 
 class MQstats(commands.Cog):
 
@@ -57,6 +58,7 @@ class MQstats(commands.Cog):
         elif (type == 'hammer'):
             basespeed = 1.938
 
-        finalspeed = float(basespeed - ((basespeed / 2) * speed))
+        getcontext().prec = 2
+        finalspeed = Decimal(basespeed - ((basespeed / 2) * speed))
 
         await ctx.send(f"Your LHC time is {finalspeed}s")
