@@ -48,12 +48,12 @@ class MQstats(commands.Cog):
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/782630973358866472/830777511411449877/DRD.png')
         embed.add_field(
             name = f'**Damage from bubble:**\n{round(dmgActual)}\n\n**Health remaining:**\n{round(healthremaining)}',
-            value = '',#round(dmgActual),
+            value = ' ',#round(dmgActual),
             inline = True
         )
         embed.add_field(
             name = f'**Adrenaline threshold:**\n{round(adreThreshold)}\n\n**Adrenaline activated?**\n{adbool}',
-            value = '',#round(healthremaining),
+            value = ' ',#round(healthremaining),
             inline = True
         )
 
