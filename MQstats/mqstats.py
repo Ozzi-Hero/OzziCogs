@@ -43,6 +43,7 @@ class MQstats(commands.Cog):
         """Returns the time taken to finish your last hit combo based off your weapon type and AS"""
 
         speed = float(str.replace(speed, "%", ""))
+        speed = speed / 100
         type = str.lower(type)
 
         if (type == 'axe'):
