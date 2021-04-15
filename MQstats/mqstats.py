@@ -46,7 +46,7 @@ class MQstats(commands.Cog):
         if (adbool == 'Yes'):
             embedColour = discord.Colour.green()
         elif (adbool == "You're dead"):
-            embedColour = discord.Colour.black()
+            embedColour = discord.Colour.from_rgb(0, 0, 0)
         else:
             embedColour = discord.Colour.red()
 
