@@ -1,6 +1,5 @@
 from redbot.core import commands
 from decimal import *
-import discord
 
 class MQstats(commands.Cog):
 
