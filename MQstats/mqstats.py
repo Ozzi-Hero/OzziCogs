@@ -9,10 +9,9 @@ class MQstats(commands.Cog):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
         #String conversions with error checking
-        try:
-            might = int(str.replace(might, ",", ""))
-            health = int(str.replace(health, ",", ""))
-            defence = int(str.replace(defence, "%", ""))
+        might = int(str.replace(might, ",", ""))
+        health = int(str.replace(health, ",", ""))
+        defence = int(str.replace(defence, "%", ""))
 
         #Calculations
         defence = defence / 100
