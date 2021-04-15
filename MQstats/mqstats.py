@@ -13,9 +13,6 @@ class MQstats(commands.Cog):
             might = int(str.replace(might, ",", ""))
             health = int(str.replace(health, ",", ""))
             defence = int(str.replace(defence, "%", ""))
-        except (ValueError):
-            return None
-            await ctx.message.reply('Please only use numbers, commas, or "%" signs when you use the command')
 
         #Calculations
         defence = defence / 100
@@ -87,6 +84,13 @@ class MQstats(commands.Cog):
                 inline = False
             )
         await ctx.message.reply(embed=embed)
+
+    @adcalc.error
+    async def adcalc_error(self, ctx, error):
+        if isinstance(error, ValueError):
+            await ctx.message.reply('Please only use numbers, commas, or "%" signs when you use the command, try again')
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.message.reply('Might, HP, and defence are all required inputs, try again')
 
     @commands.command()
     async def ascalc(self, ctx, type: str, speed: str):
