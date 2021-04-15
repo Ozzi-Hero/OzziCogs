@@ -1,8 +1,14 @@
 from redbot.core import commands
+import discord
 
 class Testing(commands.Cog):
 
     @commands.command()
     async def test(self, ctx):
 
-        await ctx.message.reply("I can do stuff!")
+        embed = discord.embed(
+            title = 'test',
+            value = 'test'
+        )
+
+        await ctx.message.reply(embed=embed)
