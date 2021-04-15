@@ -47,7 +47,11 @@ class MQstats(commands.Cog):
             description = f'Results for {ctx.author.mention}',
             colour = embedColour
         )
-        embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/782630973358866472/830777511411449877/DRD.png')
+        try:
+            thumbnailURL = discord.Guild.icon_url
+        except:
+            thumbnailURL = ctx.author.avatar_url
+        embed.set_thumbnail(url=thumbnailURL)
         embed.add_field(
             name = '**Damage from bubble:**',
             value = f'{round(dmgActual):,}',
