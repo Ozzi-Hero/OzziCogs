@@ -1,6 +1,5 @@
 from redbot.core import commands
 from decimal import *
-import discord
 
 class MQstats(commands.Cog):
 
@@ -8,11 +7,12 @@ class MQstats(commands.Cog):
     async def adcalc(self, ctx, might: str, health: str, defence: str):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
+        #String conversions
         might = int(str.replace(might, ",", ""))
         health = int(str.replace(health, ",", ""))
         defence = int(str.replace(defence, "%", ""))
 
-
+        #Calculations
         defence = defence / 100
         coeff = 2.79
 
@@ -26,6 +26,7 @@ class MQstats(commands.Cog):
 
         adreProcReq = healthremaining - adreThreshold + 1
 
+        #Health checking for string set
         if (healthremaining <= 0):
             adbool = "MF you're dead"
         elif (healthremaining < adreThreshold):
@@ -33,10 +34,15 @@ class MQstats(commands.Cog):
         else:
             adbool = 'No'
 
+        #Embed colour setting
+        if (adbool == 'Yes'):
+            embedColour = discord.Colour.green()
+
+        #Embed initialisation
         embed = discord.Embed(
             title = 'Optimisation Results',
             description = f'Results for {ctx.author.mention}',
-            colour = discord.Colour.red()
+            colour = embedColour
         )
         embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/782630973358866472/830777511411449877/DRD.png')
         embed.add_field(
