@@ -66,7 +66,7 @@ class MQstats(commands.Cog):
                 value = f'{round(adreProcReq):,}',
                 inline = False
             )
-        await ctx.send(embed=embed)
+        await ctx.message.reply(embed=embed)
 
     @commands.command()
     async def ascalc(self, ctx, type: str, speed: str):
