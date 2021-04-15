@@ -13,7 +13,7 @@ class MQstats(commands.Cog):
             might = int(str.replace(might, ",", ""))
             health = int(str.replace(health, ",", ""))
             defence = int(str.replace(defence, "%", ""))
-        except (None):
+        except (BufferError):
             return None
         else:
             await ctx.message.reply('Please only use numbers, commas, or "%" signs when you use the command')
