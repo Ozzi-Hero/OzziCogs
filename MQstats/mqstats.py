@@ -5,8 +5,10 @@ import discord
 class MQstats(commands.Cog):
 
     @commands.command()
-    async def adcalc(self, ctx, might: str, health: str, defence: str):
+    async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType:str='wild'):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
+
+        bubbleType = str.lower(bubbleType)
 
         #String conversions with error checking
         might = int(str.replace(might, ",", ""))
@@ -15,7 +17,12 @@ class MQstats(commands.Cog):
 
         #Calculations
         defence = defence / 100
-        coeff = 2.79
+        if (bubbleType == 'weak'):
+            coeff = 4.45
+        elif (bubbleType == 'wise'):
+            coeff = 3.66
+        else:
+            coeff = 2.79
 
         dmg = might / coeff
         dmgShielded = dmg * defence
@@ -29,7 +36,7 @@ class MQstats(commands.Cog):
 
         #Health checking for string set
         if (healthremaining <= 0):
-            adbool = "MF you're dead"
+            adbool = "You're dead"
         elif (healthremaining < adreThreshold):
             adbool = "Yes"
         else:
@@ -38,6 +45,8 @@ class MQstats(commands.Cog):
         #Embed colour setting
         if (adbool == 'Yes'):
             embedColour = discord.Colour.green()
+        elif (adbool == "You're dead"):
+            embedColour = discord.Colour.black()
         else:
             embedColour = discord.Colour.red()
 
@@ -84,13 +93,6 @@ class MQstats(commands.Cog):
             )
         await ctx.message.reply(embed=embed)
 
-    @adcalc.error
-    async def adcalc_error(ctx, error):
-        if isinstance(error, ValueError):
-            await ctx.message.reply('Please only use numbers, commas, or "%" signs when you use the command, try again')
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.message.reply('Might, HP, and defence are all required inputs, try again')
-
     @commands.command()
     async def ascalc(self, ctx, type: str, speed: str):
         """Returns the time taken to finish your last hit combo based off your weapon type and AS"""
@@ -113,7 +115,7 @@ class MQstats(commands.Cog):
         getcontext().prec = 4
         finalspeed = Decimal(basespeed) - (Decimal(basespeed / 2) * Decimal(speed))
 
-        await ctx.send(f"Your LHC time is {finalspeed}s")
+        await ctx.send(f"Your full attack combo time is {finalspeed}s")
 
     @commands.command()
     async def barscalc(self, ctx, bubbletype: str, barsleft: int):
