@@ -85,7 +85,7 @@ class MQstats(commands.Cog):
         await ctx.message.reply(embed=embed)
 
     @adcalc.error
-    async def adcalc_error(self, ctx, error):
+    async def adcalc_error(ctx, error):
         if isinstance(error, ValueError):
             await ctx.message.reply('Please only use numbers, commas, or "%" signs when you use the command, try again')
         if isinstance(error, commands.MissingRequiredArgument):
