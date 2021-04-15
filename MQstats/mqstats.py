@@ -46,8 +46,10 @@ class MQstats(commands.Cog):
             description = f'Results for {ctx.author.mention}',
             colour = embedColour
         )
+
+        #Setting thumbnail URL with exception for DMs or any errors
         try:
-            thumbnailURL = discord.Guild.icon_url
+            thumbnailURL = ctx.guild.icon_url
         except:
             thumbnailURL = ctx.author.avatar_url
         embed.set_thumbnail(url=thumbnailURL)
