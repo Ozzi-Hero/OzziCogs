@@ -9,9 +9,12 @@ class MQstats(commands.Cog):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
         #String conversions
-        might = int(str.replace(might, ",", ""))
-        health = int(str.replace(health, ",", ""))
-        defence = int(str.replace(defence, "%", ""))
+        try:
+            might = int(str.replace(might, ",", ""))
+            health = int(str.replace(health, ",", ""))
+            defence = int(str.replace(defence, "%", ""))
+        except:
+            await ctx.message.reply('Please only use numbers, commas, or "%" signs when you use the command')
 
         #Calculations
         defence = defence / 100
