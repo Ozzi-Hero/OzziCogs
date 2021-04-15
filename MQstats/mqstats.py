@@ -53,6 +53,7 @@ class MQstats(commands.Cog):
             thumbnailURL = ctx.guild.icon_url
         except:
             thumbnailURL = ctx.author.avatar_url
+
         embed.set_thumbnail(url=thumbnailURL)
         embed.add_field(
             name = '**Damage from bubble:**',
