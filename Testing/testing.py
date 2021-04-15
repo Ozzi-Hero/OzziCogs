@@ -6,4 +6,4 @@ class Testing(commands.Cog):
     @commands.command()
     async def test(self, ctx):
 
-        await ctx.message.reply(ctx.guild.icon_url)
+        await ctx.message.reply(ctx.author.avatar_url)
