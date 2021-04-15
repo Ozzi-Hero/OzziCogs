@@ -37,6 +37,8 @@ class MQstats(commands.Cog):
         #Embed colour setting
         if (adbool == 'Yes'):
             embedColour = discord.Colour.green()
+        else:
+            embedColour = discord.Colour.red()
 
         #Embed initialisation
         embed = discord.Embed(
