@@ -6,7 +6,7 @@ class Testing(commands.Cog):
     @commands.command()
     async def test(self, ctx):
 
-        embed = discord.embed(
+        embed = discord.Embed(
             title = 'test',
             value = 'test'
         )
