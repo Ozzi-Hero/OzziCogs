@@ -8,7 +8,7 @@ class MQstats(commands.Cog):
     async def adcalc(self, ctx, might: str, health: str, defence: str):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
-        #String conversions
+        #String conversions with error checking
         try:
             might = int(str.replace(might, ",", ""))
             health = int(str.replace(health, ",", ""))
