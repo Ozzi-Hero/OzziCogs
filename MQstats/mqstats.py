@@ -22,6 +22,9 @@ class MQstats(commands.Cog):
             coeff = 4.45
         elif (bubbleType == 'wise'):
             coeff = 3.66
+        elif (bubbleType == 'warlike'):
+            coeff = 4.45
+            warlikeMulti = 2
         else:
             coeff = 2.79
 
@@ -29,6 +32,7 @@ class MQstats(commands.Cog):
         dmgShielded = dmg * defence
 
         dmgActual = dmg - dmgShielded
+        dmgActual = dmgActual * warlikeMulti
 
         healthremaining = health - dmgActual
         adreThreshold = health * 0.2
@@ -119,7 +123,7 @@ class MQstats(commands.Cog):
         await ctx.send(f"Your full attack combo time is {finalspeed}s")
 
     @commands.command()
-    async def barscalc(self, ctx, bubbletype: str, barsleft: int):
+    async def bubblebars(self, ctx, bubbletype: str, barsleft: int):
         """Returns how much health bubble has left based on bars and bubble type."""
 
         bubbletype = str.lower(bubbletype)
@@ -131,3 +135,16 @@ class MQstats(commands.Cog):
             bubblehealth = 125000
 
         await ctx.send(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
+
+    @commands.command()
+    async def svarogbars(self, ctx, svarogtype: int, barsleft: int):
+        """Returns how much health Svarog has left based on bars and bubble type."""
+
+        if svarogtype == 1:
+            svaroghealth = 25000
+        elif svarogtype == 2:
+            svaroghealth = 45000
+        else:
+            svaroghealth = 175000
+
+        await ctx.send(f'**Health left on bubble:**\n{(barsleft * svaroghealth):,}')
