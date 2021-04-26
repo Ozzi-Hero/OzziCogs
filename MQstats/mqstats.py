@@ -10,6 +10,7 @@ class MQstats(commands.Cog):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
         bubbleType = str.lower(bubbleType)
+        warlikeMulti = 1
 
         #String conversions with error checking
         might = int(str.replace(might, ",", ""))
