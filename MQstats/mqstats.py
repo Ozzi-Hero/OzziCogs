@@ -148,4 +148,4 @@ class MQstats(commands.Cog):
         else:
             svaroghealth = 175000
 
-        await ctx.send(f'**Health left on bubble:**\n{(barsleft * svaroghealth):,}')
+        await ctx.send(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
