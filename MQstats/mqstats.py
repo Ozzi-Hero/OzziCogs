@@ -132,8 +132,10 @@ class MQstats(commands.Cog):
             bubblehealth = 25000
         elif bubbletype == 'wise':
             bubblehealth = 30000
-        else:
+        elif bubbletype == 'wild':
             bubblehealth = 125000
+        else:
+            bubblehealth = 250000
 
         await ctx.send(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
 
@@ -145,7 +147,8 @@ class MQstats(commands.Cog):
             svaroghealth = 25000
         elif svarogtype == 2:
             svaroghealth = 45000
-        else:
+        elif svarogtype == 3:
             svaroghealth = 175000
-
+        else:
+            svaroghealth = 350000
         await ctx.send(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
