@@ -1,12 +1,11 @@
 from redbot.core import commands
 from decimal import *
 import discord
-import typing
 
 class MQstats(commands.Cog):
 
     @commands.command()
-    async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType:typing.Optional[str]='wild'):
+    async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='warlike'):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
         bubbleType = str.lower(bubbleType)
@@ -23,11 +22,13 @@ class MQstats(commands.Cog):
             coeff = 4.45
         elif (bubbleType == 'wise'):
             coeff = 3.66
+        elif (bubbleType == 'wild'):
+            coeff = 2.79
         elif (bubbleType == 'warlike'):
             coeff = 4.45
             warlikeMulti = 2
         else:
-            coeff = 2.79
+            pass
 
         dmg = might / coeff
         dmgShielded = dmg * defence
