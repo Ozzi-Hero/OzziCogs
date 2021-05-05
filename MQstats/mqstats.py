@@ -102,10 +102,15 @@ class MQstats(commands.Cog):
                 )
             await ctx.message.reply(embed=embedTrue)
         else:
+            #embedFalse = discord.Embed(
+                #title = 'Error!',
+                #description = f"Error in {ctx.author.mention}'s command, please type either weak, wise, wild, or warlike for bubble type",
+                #colour = discord.Colour.red
+            #)
             embedFalse = discord.Embed(
-                title = 'Error!',
-                description = f"Error in {ctx.author.mention}'s command, please type either weak, wise, wild, or warlike for bubble type",
-                colour = discord.Colour.red
+                title = 'Optimisation Results',
+                description = f'Results for {ctx.author.mention}',
+                colour = embedColour
             )
             await ctx.message.reply(embed=embedFalse)
 
