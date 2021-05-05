@@ -109,7 +109,7 @@ class MQstats(commands.Cog):
 
             embedFalse = discord.Embed(
                 title = 'Error!',
-                description = f"That is not a valid bubble type, please type either weak, wise, wild, or warlike for bubble type",
+                description = f"That is not a valid bubble type. Please type either weak, wise, wild, or warlike for bubble type",
                 colour = discord.Colour.red()
             )
             embedFalse.set_thumbnail(url=falseThumbnailURL)
