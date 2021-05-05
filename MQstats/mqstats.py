@@ -102,6 +102,11 @@ class MQstats(commands.Cog):
                 )
             await ctx.message.reply(embed=embedTrue)
         else:
+            try:
+                thumbnailURL = ctx.guild.icon_url
+            except:
+                thumbnailURL = ctx.author.avatar_url
+                
             embedFalse = discord.Embed(
                 title = 'Error!',
                 description = f"Error in {ctx.author.mention}'s command, please type either weak, wise, wild, or warlike for bubble type",
