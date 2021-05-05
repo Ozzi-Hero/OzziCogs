@@ -10,6 +10,7 @@ class MQstats(commands.Cog):
 
         bubbleType = str.lower(bubbleType)
         warlikeMulti = 1
+        coeff = 1
 
         #String conversions with error checking
         might = int(str.replace(might, ",", ""))
@@ -30,75 +31,83 @@ class MQstats(commands.Cog):
         else:
             pass
 
-        dmg = might / coeff
-        dmgShielded = dmg * defence
+        if (coeff != 1):
+            dmg = might / coeff
+            dmgShielded = dmg * defence
 
-        dmgActual = dmg - dmgShielded
-        dmgActual = dmgActual * warlikeMulti
+            dmgActual = dmg - dmgShielded
+            dmgActual = dmgActual * warlikeMulti
 
-        healthremaining = health - dmgActual
-        adreThreshold = health * 0.2
+            healthremaining = health - dmgActual
+            adreThreshold = health * 0.2
 
-        adreProcReq = healthremaining - adreThreshold + 1
+            adreProcReq = healthremaining - adreThreshold + 1
 
-        #Health checking for string set
-        if (healthremaining <= 0):
-            adbool = "You're dead"
-        elif (healthremaining < adreThreshold):
-            adbool = "Yes"
-        else:
-            adbool = 'No'
+            #Health checking for string set
+            if (healthremaining <= 0):
+                adbool = "You're dead"
+            elif (healthremaining < adreThreshold):
+                adbool = "Yes"
+            else:
+                adbool = 'No'
 
-        #Embed colour setting
-        if (adbool == 'Yes'):
-            embedColour = discord.Colour.green()
-        elif (adbool == "You're dead"):
-            embedColour = discord.Colour.from_rgb(0, 0, 0)
-        else:
-            embedColour = discord.Colour.red()
+            #Embed colour setting
+            if (adbool == 'Yes'):
+                embedColour = discord.Colour.green()
+            elif (adbool == "You're dead"):
+                embedColour = discord.Colour.from_rgb(0, 0, 0)
+            else:
+                embedColour = discord.Colour.red()
 
-        #Embed initialisation
-        embed = discord.Embed(
-            title = 'Optimisation Results',
-            description = f'Results for {ctx.author.mention}',
-            colour = embedColour
-        )
+            #Embed initialisation
+            embedTrue = discord.Embed(
+                title = 'Optimisation Results',
+                description = f'Results for {ctx.author.mention}',
+                colour = embedColour
+            )
 
-        #Setting thumbnail URL with exception for DMs or any errors
-        try:
-            thumbnailURL = ctx.guild.icon_url
-        except:
-            thumbnailURL = ctx.author.avatar_url
+            #Setting thumbnail URL with exception for DMs or any errors
+            try:
+                thumbnailURL = ctx.guild.icon_url
+            except:
+                thumbnailURL = ctx.author.avatar_url
 
-        embed.set_thumbnail(url=thumbnailURL)
-        embed.add_field(
-            name = '**Damage from bubble:**',
-            value = f'{round(dmgActual):,}',
-            inline = True
-        )
-        embed.add_field(
-            name = '**Health remaining:**',
-            value = f'{round(healthremaining):,}',
-            inline = True
-        )
-        embed.add_field(
-            name = '**Adrenaline threshold:**',
-            value = f'{round(adreThreshold):,}',
-            inline = False
-        )
-        embed.add_field(
-            name = '**Adrenaline activated?**',
-            value = adbool,
-            inline = False
-        )
-
-        if (adbool == 'No'):
-            embed.add_field(
-                name = '**Required HP decrease to proc adrenaline:**',
-                value = f'{round(adreProcReq):,}',
+            embedTrue.set_thumbnail(url=thumbnailURL)
+            embedTrue.add_field(
+                name = '**Damage from bubble:**',
+                value = f'{round(dmgActual):,}',
+                inline = True
+            )
+            embedTrue.add_field(
+                name = '**Health remaining:**',
+                value = f'{round(healthremaining):,}',
+                inline = True
+            )
+            embedTrue.add_field(
+                name = '**Adrenaline threshold:**',
+                value = f'{round(adreThreshold):,}',
                 inline = False
             )
-        await ctx.message.reply(embed=embed)
+            embedTrue.add_field(
+                name = '**Adrenaline activated?**',
+                value = adbool,
+                inline = False
+            )
+
+            if (adbool == 'No'):
+                embedTrue.add_field(
+                    name = '**Required HP decrease to proc adrenaline:**',
+                    value = f'{round(adreProcReq):,}',
+                    inline = False
+                )
+            await ctx.message.reply(embed=embedTrue)
+        else:
+            embedFalse = discord.Embed(
+                title = 'Error!',
+                description = f"Error in {ctx.author.mention}'s command, please type either weak, wise, wild, or warlike for bubble type",
+                colour = discord.Colour.red
+            )
+            await ctx.message.reply(embed=embedFalse)
 
     @commands.command()
     async def ascalc(self, ctx, type: str, speed: str):
