@@ -107,6 +107,7 @@ class MQstats(commands.Cog):
                 description = f"Error in {ctx.author.mention}'s command, please type either weak, wise, wild, or warlike for bubble type",
                 colour = discord.Colour.red()
             )
+            embedFalse.set_thumbnail(url=thumbnailURL)
             await ctx.message.reply(embed=embedFalse)
 
     @commands.command()
