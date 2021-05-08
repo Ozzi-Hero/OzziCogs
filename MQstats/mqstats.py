@@ -45,7 +45,7 @@ class MQstats(commands.Cog):
 
             #Health checking for string set
             if (healthremaining <= 0):
-                adbool = "You're dead"
+                adbool = "MF you're dead"
             elif (healthremaining < adreThreshold):
                 adbool = "Yes"
             else:
