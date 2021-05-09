@@ -25,7 +25,7 @@ class MQstats(commands.Cog):
         elif (bubbleType == 'wild'):
             coeff = 2.79
         elif (bubbleType == 'warlike'):
-            coeff = 2.19
+            coeff = 2.15
         else:
             pass
 
