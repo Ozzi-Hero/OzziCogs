@@ -9,7 +9,6 @@ class MQstats(commands.Cog):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
         bubbleType = str.lower(bubbleType)
-        warlikeMulti = 1
         coeff = 1
 
         #String conversions with error checking
@@ -26,8 +25,7 @@ class MQstats(commands.Cog):
         elif (bubbleType == 'wild'):
             coeff = 2.79
         elif (bubbleType == 'warlike'):
-            coeff = 4.45
-            warlikeMulti = 2
+            coeff = 2.19
         else:
             pass
 
@@ -36,7 +34,6 @@ class MQstats(commands.Cog):
             dmgShielded = dmg * defence
 
             dmgActual = dmg - dmgShielded
-            dmgActual = dmgActual * warlikeMulti
 
             healthremaining = health - dmgActual
             adreThreshold = health * 0.2
@@ -54,7 +51,7 @@ class MQstats(commands.Cog):
             #Embed colour setting
             if (adbool == 'Yes'):
                 embedColour = discord.Colour.green()
-            elif (adbool == "You're dead"):
+            elif (adbool == "MF you're dead"):
                 embedColour = discord.Colour.from_rgb(0, 0, 0)
             else:
                 embedColour = discord.Colour.red()
@@ -137,7 +134,7 @@ class MQstats(commands.Cog):
         getcontext().prec = 4
         finalspeed = Decimal(basespeed) - (Decimal(basespeed / 2) * Decimal(speed))
 
-        await ctx.send(f"Your full attack combo time is {finalspeed}s")
+        await ctx.message.reply(f"Your full attack combo time is {finalspeed}s")
 
     @commands.command()
     async def bubblebars(self, ctx, bubbletype: str, barsleft: int):
@@ -153,7 +150,7 @@ class MQstats(commands.Cog):
         else:
             bubblehealth = 250000
 
-        await ctx.send(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
+        await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
 
     @commands.command()
     async def svarogbars(self, ctx, svarogtype: int, barsleft: int):
@@ -167,4 +164,4 @@ class MQstats(commands.Cog):
             svaroghealth = 175000
         else:
             svaroghealth = 350000
-        await ctx.send(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
+        await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
