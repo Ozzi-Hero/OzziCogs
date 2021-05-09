@@ -45,13 +45,13 @@ class MQstats(commands.Cog):
                 adbool = "MF you're dead"
                 embedColour = discord.Colour.from_rgb(0, 0, 0)
 
-            elif (healthremaining < adreThreshold):
-                adbool = "Yes"
-                embedColour = discord.Colour.green()
-
             elif (healthremaining < 100000):
                 adbool = "You will be under 100k health. Recalculate or proceed with extreme caution."
                 embedColour = discord.Colour.orange()
+
+            elif (healthremaining < adreThreshold):
+                adbool = "Yes"
+                embedColour = discord.Colour.green()
 
             else:
                 adbool = 'No'
