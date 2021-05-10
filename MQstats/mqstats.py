@@ -4,7 +4,7 @@ import discord
 
 class MQstats(commands.Cog):
 
-    def iconGrab(self, ctx):
+    def iconGrab(ctx):
         try:
             thumbnailURL = ctx.guild.icon_url
         except:
