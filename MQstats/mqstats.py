@@ -4,14 +4,12 @@ import discord
 
 class MQstats(commands.Cog):
 
-    def globals():
-        global iconGrab
-        def iconGrab(ctx):
-            try:
-                thumbnailURL = ctx.guild.icon_url
-            except:
-                thumbnailURL = ctx.author.avatar_url
-            return thumbnailURL
+    def iconGrab(self, context):
+        try:
+            thumbnailURL = context.guild.icon_url
+        except:
+            thumbnailURL = context.author.avatar_url
+        return thumbnailURL
 
     @commands.command()
     async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='warlike'):
@@ -75,7 +73,8 @@ class MQstats(commands.Cog):
 
             #Setting thumbnail URL with exception for DMs or any errors
 
-            embedTrue.set_thumbnail(url=iconGrab(ctx))
+            thumbnailURL = iconGrab(ctx)
+            embedTrue.set_thumbnail(url=thumbnailURL)
             embedTrue.add_field(
                 name = '**Damage from bubble:**',
                 value = f'{round(dmgActual):,}',
@@ -111,7 +110,8 @@ class MQstats(commands.Cog):
                 description = f"That is not a valid bubble type. Please type either weak, wise, wild, or warlike for bubble type",
                 colour = discord.Colour.red()
             )
-            embedFalse.set_thumbnail(url=iconGrab(ctx))
+            thumbnailURL = iconGrab(ctx)
+            embedFalse.set_thumbnail(url=thumbnailURL)
             await ctx.message.reply(embed=embedFalse)
 
     @commands.command()
