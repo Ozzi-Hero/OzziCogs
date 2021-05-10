@@ -4,12 +4,14 @@ import discord
 
 class MQstats(commands.Cog):
 
-    def iconGrab(ctx):
-        try:
-            thumbnailURL = ctx.guild.icon_url
-        except:
-            thumbnailURL = ctx.author.avatar_url
-        return thumbnailURL
+    def globals():
+        global iconGrab
+        def iconGrab(ctx):
+            try:
+                thumbnailURL = ctx.guild.icon_url
+            except:
+                thumbnailURL = ctx.author.avatar_url
+            return thumbnailURL
 
     @commands.command()
     async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='warlike'):
