@@ -152,7 +152,7 @@ class MQstats(commands.Cog):
             inline = False
         )
 
-        await ctx.message.reply(lhcEmbed)
+        await ctx.message.reply(embed=lhcEmbed)
 
     @commands.command()
     async def bubblebars(self, ctx, bubbletype: str, barsleft: int):
