@@ -135,6 +135,23 @@ class MQstats(commands.Cog):
         getcontext().prec = 4
         finalspeed = Decimal(basespeed) - (Decimal(basespeed / 2) * Decimal(speed))
 
+        lhcEmbed = discord.Embed(
+            title = 'LHC Time Results',
+            description = f"Results for {ctx.author.mention}",
+            colour = discord.Colour.green()
+        )
+        lhcEmbed.add_field(
+            name = '**Total LHC time:**',
+            value = finalspeed,
+            inline = False
+        )
+        procNumber = 2.5 / finalspeed
+        lhcEmbed.add_field(
+            name = "**Number of full combo's within 2.5s:**",
+            value = procNumber,
+            inline = False
+        )
+
         await ctx.message.reply(f"Your full attack combo time is {finalspeed}s")
 
     @commands.command()
