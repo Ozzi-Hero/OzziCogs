@@ -152,7 +152,7 @@ class MQstats(commands.Cog):
             inline = False
         )
 
-        await ctx.message.reply(f"Your full attack combo time is {finalspeed}s")
+        await ctx.message.reply(lhcEmbed)
 
     @commands.command()
     async def bubblebars(self, ctx, bubbletype: str, barsleft: int):
