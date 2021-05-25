@@ -145,7 +145,7 @@ class MQstats(commands.Cog):
             value = finalspeed,
             inline = False
         )
-        procNumber = 2.5 / finalspeed
+        procNumber = Decimal(2.5) / Decimal(finalspeed)
         lhcEmbed.add_field(
             name = "**Number of full combo's within 2.5s:**",
             value = procNumber,
