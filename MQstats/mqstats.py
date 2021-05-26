@@ -146,7 +146,7 @@ class MQstats(commands.Cog):
             inline = False
         )
 
-        getcontext().prec = 1
+        getcontext().prec = 2
         procNumber = Decimal(2.51) / Decimal(finalspeed)
 
         lhcEmbed.add_field(
