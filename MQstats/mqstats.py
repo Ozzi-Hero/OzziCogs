@@ -142,7 +142,7 @@ class MQstats(commands.Cog):
         )
         lhcEmbed.add_field(
             name = '**Total LHC time:**',
-            value = finalspeed,
+            value = f'{finalspeed}s',
             inline = False
         )
 
