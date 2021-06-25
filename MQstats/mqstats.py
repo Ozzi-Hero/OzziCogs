@@ -8,7 +8,7 @@ class MQstats(commands.Cog):
     async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='warlike'):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
-        if (ctx.author.id == 175931110432178176):
+        if (ctx.author.id == 390990693348409355):
             await ctx.send("<@390990693348409355> you're a noob")
 
         bubbleType = str.lower(bubbleType)
