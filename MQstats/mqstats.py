@@ -8,9 +8,6 @@ class MQstats(commands.Cog):
     async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='warlike'):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
-        if (ctx.author.id == 390990693348409355):
-            await ctx.send("<@390990693348409355> you're a noob")
-
         bubbleType = str.lower(bubbleType)
         coeff = 1
 
@@ -42,6 +39,10 @@ class MQstats(commands.Cog):
             adreThreshold = health * 0.2
 
             adreProcReq = healthremaining - adreThreshold + 1
+
+            if (ctx.author.id == 390990693348409355):
+                await ctx.send("<@390990693348409355> you're a noob")
+                healthremaining = healthremaining * -1
 
             #Health checking for string set and embed colour setting
             if (healthremaining <= 0):
