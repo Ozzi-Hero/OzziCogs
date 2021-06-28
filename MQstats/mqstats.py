@@ -40,10 +40,6 @@ class MQstats(commands.Cog):
 
             adreProcReq = healthremaining - adreThreshold + 1
 
-            if (ctx.author.id == 390990693348409355):
-                await ctx.send("<@390990693348409355> you're a noob")
-                healthremaining = healthremaining * -1
-
             #Health checking for string set and embed colour setting
             if (healthremaining <= 0):
                 adbool = "MF you're dead"
