@@ -209,5 +209,6 @@ class MQstats(commands.Cog):
         holstat = holstat / 100
 
         actualstat = gearstat * (1 + holstat)
+        round(actualstat, 3)
 
         await ctx.message.reply(f'**Final stat after HoL bonus is applied:**\n{actualstat}%')
