@@ -113,7 +113,7 @@ class MQstats(commands.Cog):
             await ctx.message.reply(embed=embedFalse)
 
     @commands.command()
-    async def ascalc(self, ctx, type: str, speed: str, HoLspeed, str):
+    async def ascalc(self, ctx, type: str, speed: str, HoLspeed: str):
         """Returns the time taken to finish your last hit combo based off your weapon type and AS"""
 
         speed = float(str.replace(speed, "%", ""))
