@@ -160,7 +160,6 @@ class MQstats(commands.Cog):
     async def bubblebars(self, ctx, bubbletype: int, barsleft: int):
         """Returns how much health bubble has left based on bars and bubble type."""
 
-        bubbletype = str.lower(bubbletype)
         if bubbletype == '1':
             bubblehealth = 25000
             await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
