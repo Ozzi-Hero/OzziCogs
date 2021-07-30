@@ -205,7 +205,7 @@ class MQstats(commands.Cog):
         gearstat = float(str.replace(gearstat, '%', ''))
         holstat = float(str.replace(holstat, '%', ''))
 
-        gearstat = gearstat / 100
+        gearstat = gearstat
         holstat = holstat / 100
 
         actualstat = gearstat * (1 + holstat)
