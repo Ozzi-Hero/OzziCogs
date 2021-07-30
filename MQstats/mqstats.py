@@ -197,3 +197,17 @@ class MQstats(commands.Cog):
             await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
         else:
             await ctx.message.reply('Incorrect input for svarogtype, please type either 1, 2, 3, or 4.')
+
+    @commands.command()
+    async def holconvert(self, ctx, gearstat: str, holstat: str):
+        """Outputs your actual stat after HoL bonus is applied."""
+
+        gearstat = float(str.replace(gearstat, '%', ''))
+        holstat = float(str.replace(gearstat, '%', ''))
+
+        gearstat = gearstat / 100
+        holstat = holstat / 100
+
+        actualstat = gearstat * (1 + holstat)
+
+        await ctx.message.reply(f'**Final stat after HoL bonus is applied:**\n{actualstat}%')
