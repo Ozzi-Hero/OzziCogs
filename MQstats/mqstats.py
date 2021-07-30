@@ -5,7 +5,7 @@ import discord
 class MQstats(commands.Cog):
 
     @commands.command()
-    async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='warlike'):
+    async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='4'):
         """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
 
         bubbleType = str.lower(bubbleType)
@@ -18,13 +18,13 @@ class MQstats(commands.Cog):
 
         #Calculations
         defence = defence / 100
-        if (bubbleType == 'weak'):
+        if (bubbleType == '1'):
             coeff = 4.45
-        elif (bubbleType == 'wise'):
+        elif (bubbleType == '2'):
             coeff = 3.66
-        elif (bubbleType == 'wild'):
+        elif (bubbleType == '3'):
             coeff = 2.79
-        elif (bubbleType == 'warlike'):
+        elif (bubbleType == '4'):
             coeff = 2.15
         else:
             pass
@@ -107,7 +107,7 @@ class MQstats(commands.Cog):
 
             embedFalse = discord.Embed(
                 title = 'Error!',
-                description = f"That is not a valid bubble type. Please type either weak, wise, wild, or warlike for bubble type",
+                description = f"That is not a valid bubble type. Please type either 1, 2, 3, or 4 for bubble type",
                 colour = discord.Colour.red()
             )
             embedFalse.set_thumbnail(url=falseThumbnailURL)
@@ -158,31 +158,40 @@ class MQstats(commands.Cog):
         await ctx.message.reply(embed=lhcEmbed)
 
     @commands.command()
-    async def bubblebars(self, ctx, bubbletype: str, barsleft: int):
+    async def bubblebars(self, ctx, bubbletype: int, barsleft: int):
         """Returns how much health bubble has left based on bars and bubble type."""
 
         bubbletype = str.lower(bubbletype)
-        if bubbletype == 'weak':
+        if bubbletype == '1':
             bubblehealth = 25000
-        elif bubbletype == 'wise':
+            await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
+        elif bubbletype == '2':
             bubblehealth = 30000
-        elif bubbletype == 'wild':
+            await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
+        elif bubbletype == '3':
             bubblehealth = 125000
-        else:
+            await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
+        elif bubbletype == '4':
             bubblehealth = 250000
-
-        await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
+            await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
+        else:
+            await ctx.message.reply('Incorrect input for bubbletype, please type either 1, 2, 3, or 4.')
 
     @commands.command()
     async def svarogbars(self, ctx, svarogtype: int, barsleft: int):
         """Returns how much health Svarog has left based on bars and bubble type."""
 
-        if svarogtype == 1:
+        if svarogtype == '1':
             svaroghealth = 25000
-        elif svarogtype == 2:
-            svaroghealth = 45000
-        elif svarogtype == 3:
-            svaroghealth = 175000
+            await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
+        elif svarogtype == '2':
+            svaroghealth = 30000
+            await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
+        elif svarogtype == '3':
+            svaroghealth = 125000
+            await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
+        elif svarogtype == '4':
+            svaroghealth = 250000
+            await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
         else:
-            svaroghealth = 350000
-        await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
+            await ctx.message.reply('Incorrect input for svarogtype, please type either 1, 2, 3, or 4.')
