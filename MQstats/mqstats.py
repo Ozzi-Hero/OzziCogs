@@ -6,7 +6,7 @@ class MQstats(commands.Cog):
 
     @commands.command()
     async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='4'):
-        """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation"""
+        """Returns multiple statistics for bubble damage, set health, and adrenaline optimisation. 4 = warlike, 1 = weak"""
 
         coeff = 1
 
