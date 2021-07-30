@@ -203,7 +203,7 @@ class MQstats(commands.Cog):
         """Outputs your actual stat after HoL bonus is applied."""
 
         gearstat = float(str.replace(gearstat, '%', ''))
-        holstat = float(str.replace(gearstat, '%', ''))
+        holstat = float(str.replace(holstat, '%', ''))
 
         gearstat = gearstat / 100
         holstat = holstat / 100
