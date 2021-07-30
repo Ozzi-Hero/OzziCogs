@@ -113,12 +113,16 @@ class MQstats(commands.Cog):
             await ctx.message.reply(embed=embedFalse)
 
     @commands.command()
-    async def ascalc(self, ctx, type: str, speed: str):
+    async def ascalc(self, ctx, type: str, speed: str, HoLspeed, str):
         """Returns the time taken to finish your last hit combo based off your weapon type and AS"""
 
         speed = float(str.replace(speed, "%", ""))
+        HoLspeed = float(str.replace(HoLspeed, "%", ""))
         speed = speed / 100
+        HoLspeed = HoLspeed / 100
         type = str.lower(type)
+
+        actualspeed = speed * (1 + HoLspeed)
 
         if (type == 'axe'):
             basespeed = 2.143
@@ -132,7 +136,7 @@ class MQstats(commands.Cog):
             basespeed = 1.938
 
         getcontext().prec = 4
-        finalspeed = Decimal(basespeed) - (Decimal(basespeed / 2) * Decimal(speed))
+        finalspeed = Decimal(basespeed) - (Decimal(basespeed / 2) * Decimal(actualspeed))
 
         lhcEmbed = discord.Embed(
             title = 'LHC Time Results',
