@@ -160,16 +160,16 @@ class MQstats(commands.Cog):
     async def bubblebars(self, ctx, bubbletype: int, barsleft: int):
         """Returns how much health bubble has left based on bars and bubble type."""
 
-        if bubbletype == '1':
+        if bubbletype == 1:
             bubblehealth = 25000
             await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
-        elif bubbletype == '2':
+        elif bubbletype == 2:
             bubblehealth = 30000
             await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
-        elif bubbletype == '3':
+        elif bubbletype == 3:
             bubblehealth = 125000
             await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
-        elif bubbletype == '4':
+        elif bubbletype == 4:
             bubblehealth = 250000
             await ctx.message.reply(f'**Health left on bubble:**\n{(barsleft * bubblehealth):,}')
         else:
@@ -179,16 +179,16 @@ class MQstats(commands.Cog):
     async def svarogbars(self, ctx, svarogtype: int, barsleft: int):
         """Returns how much health Svarog has left based on bars and bubble type."""
 
-        if svarogtype == '1':
+        if svarogtype == 1:
             svaroghealth = 25000
             await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
-        elif svarogtype == '2':
+        elif svarogtype == 2:
             svaroghealth = 30000
             await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
-        elif svarogtype == '3':
+        elif svarogtype == 3:
             svaroghealth = 125000
             await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
-        elif svarogtype == '4':
+        elif svarogtype == 4:
             svaroghealth = 250000
             await ctx.message.reply(f'**Health left on Svarog:**\n{(barsleft * svaroghealth):,}')
         else:
