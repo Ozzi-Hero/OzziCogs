@@ -5,6 +5,10 @@ import discord
 class MQstats(commands.Cog):
 
     @commands.command()
+    async def noob(self, ctx):
+        await ctx.message.reply("I know we're both talking about <@813870371924738079>, so what about them?")
+
+    @commands.command()
     async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='4'):
         """Returns how much damage bubble deals to you while you're standing in the adrenaline zone, as well as some other stats. 4 = warlike, 1 = weak"""
 
