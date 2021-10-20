@@ -6,7 +6,7 @@ class MQstats(commands.Cog):
 
     @commands.command()
     async def noob(self, ctx):
-        await ctx.message.reply("I know we're both talking about <@813870371924738079>, so what about them?")
+        await ctx.message.reply("I know you are, but what am I?")
 
     @commands.command()
     async def adcalc(self, ctx, might: str, health: str, defence: str, bubbleType='4'):
