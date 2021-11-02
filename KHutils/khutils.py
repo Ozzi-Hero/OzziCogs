@@ -39,5 +39,5 @@ class KHutils(commands.Cog):
             inline = True
             )
 
-        channel = get_channel(903341457178509373)
-        await channel.message.send(guild, embed=summonEmbed)
+        channel = commands.get_channel(903341457178509373)
+        await channel.send(guild, embed=summonEmbed)
