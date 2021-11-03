@@ -43,5 +43,4 @@ class KHutils(commands.Cog):
             )
 
         channel = ctx.bot.get_channel(903341457178509373)
-        ctx.message.role_mentions = True
-        await channel.send(guild, embed=summonEmbed)
+        await channel.send(guild, allowed_mentions=roles, embed=summonEmbed)
