@@ -1,4 +1,5 @@
 from redbot.core import commands
+import discord
 
 class KHutils(commands.Cog):
     """Knighthood utility commands for DreadKnights"""
@@ -38,6 +39,6 @@ class KHutils(commands.Cog):
             inline = True
             )
 
-        channelID = '903341457178509373'
+        channelID = 903341457178509373
         channel = commands.get_channel(channelID)
         await channel.send(guild, embed=summonEmbed)
