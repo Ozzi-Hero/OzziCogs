@@ -42,5 +42,6 @@ class KHutils(commands.Cog):
             inline = True
             )
 
-        channel = ctx.bot.get_channel(903341457178509373)
+        channelID = 903341457178509373
+        channel = ctx.bot.get_channel(channelID)
         await channel.send(guild, allowed_mentions=discord.AllowedMentions(roles=True), embed=summonEmbed)
