@@ -8,7 +8,7 @@ class KHutils(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def summonboss(self, ctx, guild: str, boss: str, weakness: str, resistance: str):
+    async def summonboss(self, ctx, guild: str, boss: str, weakness: str, resistance: str, mentions: discord.AllowedMentions = roles):
         """Summon announcement command"""
 
         if(guild == 'Knights'):
@@ -43,4 +43,4 @@ class KHutils(commands.Cog):
             )
 
         channel = ctx.bot.get_channel(895737127474724934)
-        await channel.send(guild, allowed_mentions=True, embed=summonEmbed)
+        await channel.send(guild, allowed_mentions=mentions, embed=summonEmbed)
