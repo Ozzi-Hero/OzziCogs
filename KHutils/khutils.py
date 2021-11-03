@@ -42,5 +42,5 @@ class KHutils(commands.Cog):
             inline = True
             )
 
-        channel = ctx.bot.get_channel(903341457178509373)
+        channel = ctx.bot.get_channel(895737127474724934)
         await channel.send(guild, allowed_mentions=roles, embed=summonEmbed)
