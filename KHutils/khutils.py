@@ -8,7 +8,7 @@ class KHutils(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def summonboss(self, ctx, guild=str, boss=str, weakness=str, resistance=str):
+    async def summonboss(self, ctx, guild: str, boss: str, weakness: str, resistance: str):
         """Summon announcement command"""
 
         if(guild == 'Knights'):
