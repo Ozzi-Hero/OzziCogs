@@ -12,9 +12,9 @@ class KHutils(commands.Cog):
         """Summon announcement command"""
 
         if(guild == 'Knights'):
-            guild = '<@896762237337878559>'
+            guild = '<@&896762237337878559>'
         elif(guild == 'Fighters'):
-            guild = '<@895736777137086474>'
+            guild = '<@&895736777137086474>'
 
         summonEmbed = discord.Embed(
             title = 'Boss Info',
