@@ -39,5 +39,6 @@ class KHutils(commands.Cog):
             inline = True
             )
 
-        channel = ctx.get_channel(903341457178509373)
+        channelID = 903341457178509373
+        channel = discord.Client.get_channel(channelID)
         await channel.send(guild, embed=summonEmbed)
