@@ -1,5 +1,4 @@
 from redbot.core import commands
-import discord
 
 class KHutils(commands.Cog):
     """Knighthood utility commands for DreadKnights"""
