@@ -4,6 +4,9 @@ import discord
 class KHutils(commands.Cog):
     """Knighthood utility commands for DreadKnights"""
 
+    def __init__(self, bot):
+        self.bot = bot
+
     @commands.command()
     async def summonboss(self, ctx, guild=str, boss=str, weakness=str, resistance=str):
         """Summon announcement command"""
@@ -39,5 +42,5 @@ class KHutils(commands.Cog):
             inline = True
             )
 
-        channel = discord.Client.get_channel(903341457178509373)
+        channel = ctx.bot.get_channel(903341457178509373)
         await channel.send(guild, embed=summonEmbed)
