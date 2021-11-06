@@ -11,10 +11,14 @@ class KHutils(commands.Cog):
     async def summonboss(self, ctx, guild: str, boss: str, weakness: str, resistance: str):
         """Summon announcement command"""
 
+        thumbnailURL = None
+
         if(guild == 'Knights'):
             guild = '<@&896762237337878559>'
+            thumbnailURL = 'https://cdn.discordapp.com/attachments/895686824947765300/906453442426454016/DRDKLogo.png'
         elif(guild == 'Fighters'):
             guild = '<@&895736777137086474>'
+            thumbnailURL = 'https://cdn.discordapp.com/attachments/895686824947765300/906454209161994260/DRDFLogo.png'
 
         summonEmbed = discord.Embed(
             title = 'Boss Info',
@@ -22,7 +26,7 @@ class KHutils(commands.Cog):
             colour = discord.Colour.green()
             )
 
-        summonEmbed.set_thumbnail(url=ctx.guild.icon_url)
+        summonEmbed.set_thumbnail(url=thumbnailURL)
 
         summonEmbed.add_field(
             name = '**Boss Summoned:**',
