@@ -11,8 +11,6 @@ class KHutils(commands.Cog):
     async def summonboss(self, ctx, guild: str, boss: str, weakness: str, resistance: str):
         """Summon announcement command"""
 
-        thumbnailURL = None
-
         if(guild == 'Knights'):
             guild = '<@&896762237337878559>'
             thumbnailURL = 'https://cdn.discordapp.com/attachments/895686824947765300/906453442426454016/DRDKLogo.png'
